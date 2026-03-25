@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sir Sourdough — small-batch artisan sourdough bread, cookies, and seasonal bakes. Order locally by Instagram DM." />
-  <meta name="theme-color" content="#111111" />
-  <title>Sir Sourdough</title>
+  <title>Sir SourDough Baking Co.</title>
+  <meta name="description" content="Small-batch sourdough, cookies, and rotating bakes. Local pickup. Order through Instagram." />
   <style>
     :root {
-      --bg: #f6f0e7;
-      --paper: #fffaf3;
-      --text: #1a1714;
-      --muted: #5c5248;
-      --line: #d8c7b2;
-      --accent: #6f4e37;
-      --accent-dark: #4c3424;
-      --shadow: 0 12px 40px rgba(0,0,0,.10);
-      --radius: 22px;
+      --bg: #f6efe6;
+      --paper: rgba(255, 249, 242, 0.9);
+      --ink: #2f2219;
+      --muted: #6b5a4c;
+      --accent: #7a4b2d;
+      --accent-dark: #4e2f1d;
+      --line: rgba(79, 53, 37, 0.14);
+      --shadow: 0 18px 45px rgba(47, 34, 25, 0.12);
+      --radius: 24px;
       --max: 1120px;
     }
 
@@ -24,18 +23,18 @@
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+      color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(255,255,255,.6), transparent 30%),
-        linear-gradient(180deg, #f8f2ea 0%, #f2e8da 100%);
-      line-height: 1.5;
+        radial-gradient(circle at top, rgba(255,255,255,0.65), transparent 30%),
+        linear-gradient(180deg, #f8f1e8 0%, #f2e8dc 100%);
+      line-height: 1.55;
     }
 
-    a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
 
-    .wrap {
+    .container {
       width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
     }
@@ -45,97 +44,54 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(10px);
-      background: rgba(255, 250, 243, 0.82);
-      border-bottom: 1px solid rgba(111, 78, 55, 0.12);
+      background: rgba(248, 241, 232, 0.82);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 14px 0;
+      align-items: center;
       gap: 16px;
+      padding: 14px 0;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: .02em;
-    }
-
-    .crest {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      color: #fff;
-      box-shadow: var(--shadow);
-      font-size: 1.1rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 18px;
+      flex-wrap: wrap;
+      gap: 16px;
       color: var(--muted);
-      font-size: .96rem;
-    }
-
-    .button,
-    .button-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-      min-height: 48px;
-    }
-
-    .button {
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .button:hover,
-    .button-outline:hover {
-      transform: translateY(-1px);
-    }
-
-    .button-outline {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.65);
+      font-weight: 600;
+      font-size: 0.96rem;
     }
 
     .hero {
-      padding: 72px 0 36px;
+      padding: 54px 0 26px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 28px;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 24px;
       align-items: stretch;
     }
 
-    .hero-copy,
-    .hero-card,
-    .card {
-      background: rgba(255,250,243,.82);
-      border: 1px solid rgba(111,78,55,.12);
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
     .hero-copy {
-      padding: 40px;
+      padding: 36px;
     }
 
     .eyebrow {
@@ -144,63 +100,111 @@
       gap: 8px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(111, 78, 55, 0.08);
+      background: rgba(122, 75, 45, 0.08);
       color: var(--accent-dark);
-      font-size: .9rem;
       font-weight: 700;
+      font-size: 0.9rem;
       margin-bottom: 16px;
     }
 
-    h1 {
+    h1, h2 {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.6rem, 5vw, 4.8rem);
-      line-height: .98;
-      margin: 0 0 16px;
-      letter-spacing: -.03em;
+      line-height: 0.98;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      margin-bottom: 14px;
     }
 
     .lead {
-      font-size: 1.08rem;
+      margin: 0 0 22px;
       color: var(--muted);
-      max-width: 58ch;
-      margin: 0 0 28px;
+      font-size: 1.06rem;
+      max-width: 60ch;
     }
 
-    .hero-actions {
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
-    .trust {
+    .button,
+    .button-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .button:hover,
+    .button-outline:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .button {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+    }
+
+    .button-outline {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid var(--line);
+    }
+
+    .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      color: var(--muted);
-      font-size: .94rem;
     }
 
-    .trust span {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.72);
+    .chips span {
+      background: rgba(255,255,255,0.78);
       border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.93rem;
     }
 
     .hero-card {
       padding: 18px;
       display: grid;
-      gap: 16px;
+      gap: 14px;
     }
 
-    .photo {
-  min-height: 380px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(111,78,55,.12);
-  background: none;
-}
+    .hero-photo,
+    .gallery-photo {
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #e7ddd1;
+    }
+
+    .hero-photo img,
+    .gallery-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-photo {
+      min-height: 420px;
+    }
 
     .mini-grid {
       display: grid;
@@ -209,95 +213,85 @@
     }
 
     .mini {
-      background: #fff;
-      border-radius: 16px;
-      padding: 14px;
+      background: rgba(255,255,255,0.9);
       border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
     }
 
     .mini strong {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     section {
-      padding: 18px 0 24px;
+      padding: 24px 0;
     }
 
     .section-head {
       display: flex;
       justify-content: space-between;
       align-items: end;
-      gap: 16px;
-      margin-bottom: 18px;
+      gap: 12px;
+      margin-bottom: 16px;
     }
 
-    h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      margin: 0;
+    .muted {
+      color: var(--muted);
     }
 
-    .muted { color: var(--muted); }
-
-    .grid-3 {
+    .grid-2,
+    .grid-3,
+    .steps {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
+
+    .grid-2 { grid-template-columns: 1.08fr 0.92fr; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .steps { grid-template-columns: repeat(3, 1fr); }
 
     .card {
       padding: 24px;
     }
 
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 1.12rem;
-    }
-
     .menu-list {
       display: grid;
       gap: 12px;
-      margin-top: 12px;
+      margin-top: 14px;
     }
 
     .menu-item {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      gap: 16px;
       padding: 14px 16px;
-      background: rgba(255,255,255,.8);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.82);
       border: 1px solid var(--line);
-      border-radius: 16px;
     }
 
-    .menu-item strong { display: block; }
-    .price { white-space: nowrap; font-weight: 800; }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
+    .menu-item strong { display: block; margin-bottom: 4px; }
+    .price { white-space: nowrap; font-weight: 900; }
 
     .step-num {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
       display: grid;
       place-items: center;
       background: var(--accent-dark);
-      color: #fff;
-      font-weight: 800;
-      margin-bottom: 14px;
+      color: white;
+      font-weight: 900;
+      margin-bottom: 12px;
     }
 
     .cta {
-      padding: 24px;
-      margin: 18px 0 42px;
-      background: linear-gradient(135deg, rgba(111,78,55,.98), rgba(56,36,24,.98));
-      color: #fff;
+      margin: 24px 0 36px;
+      padding: 26px;
       border-radius: 28px;
+      background: linear-gradient(135deg, rgba(91,58,37,0.98), rgba(48,30,19,0.98));
+      color: white;
       box-shadow: var(--shadow);
     }
 
@@ -309,226 +303,262 @@
       flex-wrap: wrap;
     }
 
-    .footer {
-      padding: 24px 0 48px;
+    footer {
+      padding: 8px 0 44px;
       color: var(--muted);
-      font-size: .95rem;
+      font-size: 0.95rem;
     }
 
     .footer-line {
       display: flex;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
-      border-top: 1px solid rgba(111,78,55,.12);
+      border-top: 1px solid var(--line);
       padding-top: 18px;
     }
 
-    .small {
-      font-size: .92rem;
-    }
-
-    @media (max-width: 900px) {
+    @media (max-width: 920px) {
       .hero-grid,
+      .grid-2,
       .grid-3,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
+      .steps,
       .mini-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding-top: 42px;
-      }
-
       .hero-copy,
+      .hero-card,
       .card,
-      .hero-card {
+      .cta {
         padding: 22px;
       }
 
       .nav-links {
         display: none;
       }
+
+      .hero-photo {
+        min-height: 300px;
+      }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Sir Sourdough home">
-        <img src="logo" alt="Sir Sourdough logo" style="height:48px;">
-       
-      </a>
-      <nav class="nav-links" aria-label="Primary navigation">
+    <div class="container nav">
+      <a class="brand" href="#top">Sir SourDough</a>
+      <nav class="nav-links">
         <a href="#menu">Menu</a>
-        <a href="#how">How to Order</a>
         <a href="#about">About</a>
+        <a href="#order">How to Order</a>
+        <a href="https://www.instagram.com/sir_sourdough_baking_co/" target="_blank" rel="noreferrer">Instagram</a>
       </nav>
-      <a class="button" href="https://www.instagram.com/sir_sourdough_baking_co/" target="_blank" rel="noopener noreferrer">Order on Instagram</a>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
+      <div class="container hero-grid">
+        <div class="panel hero-copy">
           <div class="eyebrow">Small-batch artisan baking</div>
-          <h1>Fresh bread.<br />Made with care.</h1>
-          <p class="lead">
-            Sir Sourdough is a small-batch bakery built on patience, simplicity, and doing things the right way. Every loaf is naturally leavened, fermented slowly, and made with ingredients you can actually recognize.
-
-This started as a craft, learning the process, dialing it in, and chasing that perfect crumb. Now it’s about sharing it. Fresh bread, honest food, and something real in a world full of shortcuts.
-          </p>
-          <div class="hero-actions">
-            <a class="button" href="https://www.instagram.com/sir_sourdough_baking_co/" target="_blank" rel="noopener noreferrer">Order by DM</a>
+          <h1>Fresh bread.<br>Built slow. Baked right.</h1>
+          <p class="lead">Sir SourDough is a small-batch bakery built on patience, fermentation, and making food that actually feels real. Naturally leavened loaves, thick cookies, and rotating bakes made for local pickup.</p>
+          <div class="actions">
+            <a class="button" href="https://www.instagram.com/sir_sourdough_baking_co/" target="_blank" rel="noreferrer">Order by DM</a>
             <a class="button-outline" href="#menu">See the menu</a>
           </div>
-          <div class="trust">
+          <div class="chips">
             <span>Local pickup</span>
             <span>Small batch</span>
             <span>Natural ingredients</span>
           </div>
         </div>
 
-        <div class="hero-card" aria-label="Featured bake details">
-          <div class="photo" style="display:flex; align-items:center; justify-content:center;">
-  <img src="logo" alt="Sir Sourdough logo" style="max-width:100%; max-height:420px; object-fit:contain;">
-</div>
+        <div class="panel hero-card">
+          <div class="hero-photo">
+            <img src="bread.jpg" alt="Fresh artisan sourdough loaf">
+          </div>
           <div class="mini-grid">
             <div class="mini">
               <strong>Signature loaf</strong>
-              <span class="small muted">Classic naturally leavened sourdough</span>
+              Classic naturally leavened sourdough.
             </div>
             <div class="mini">
               <strong>Sweet bakes</strong>
-              <span class="small muted">Cookies, rolls, and rotating specials</span>
+              Cookies and rotating specials.
             </div>
             <div class="mini">
               <strong>Made local</strong>
-              <span class="small muted">Freshly baked for your area</span>
+              Freshly baked for pickup in New Hampshire.
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container grid-2">
+        <div>
+          <div class="section-head">
+            <div>
+              <h2>From dough to crust</h2>
+              <p class="muted">A simple site with your actual bread front and center.</p>
+            </div>
+          </div>
+          <div class="gallery-photo panel" style="min-height: 420px; padding: 0;">
+            <img src="loaf crumb.jpg" alt="Close-up of artisan sourdough crumb">
+          </div>
+        </div>
+
+        <div class="grid-3" style="grid-template-columns: 1fr;">
+          <div class="panel card">
+            <h3>Real process</h3>
+            <p class="muted">Slow fermentation, shaping, proofing, and baking that shows in the crust and crumb.</p>
+          </div>
+          <div class="panel card">
+            <h3>Small-batch quality</h3>
+            <p class="muted">Less mass-produced, more dialed in. Better control, better bread.</p>
+          </div>
+          <div class="panel card">
+            <h3>Built to sell</h3>
+            <p class="muted">Clean, fast, mobile-friendly, and dead simple for people to order from Instagram.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="menu">
-      <div class="wrap">
+      <div class="container">
         <div class="section-head">
           <div>
-            <h2>Menu</h2>
-            <p class="muted">“Built on craft. Baked fresh.”</p>
+            <h2>Built on craft. Baked fresh.</h2>
+            <p class="muted">Core items and rotating bakes. Availability changes by batch.</p>
           </div>
         </div>
-        <div class="grid-3">
-          <article class="card">
+
+        <div class="grid-2">
+          <div class="panel card">
             <h3>Breads</h3>
-            <p class="muted">Our core products.</p>
+            <p class="muted">Core loaves made slowly and baked fresh.</p>
             <div class="menu-list">
               <div class="menu-item">
                 <div>
                   <strong>Classic Sourdough Loaf</strong>
-                  <span class="small muted">Crackly crust, soft open crumb</span>
+                  Crackly crust, open crumb, full flavor.
                 </div>
-                <span class="price">$12</span>
+                <div class="price">$12</div>
               </div>
               <div class="menu-item">
                 <div>
                   <strong>Sandwich Loaf</strong>
-                  <span class="small muted">Soft, sliceable, everyday bread</span>
+                  Soft, sliceable, everyday bread.
                 </div>
-                <span class="price">$10</span>
+                <div class="price">$10</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong>Seasonal Loaf</strong>
+                  Rotating special when available.
+                </div>
+                <div class="price">Varies</div>
               </div>
             </div>
-          </article>
+          </div>
 
-          <article class="card">
+          <div class="panel card">
             <h3>Sweets</h3>
-            <p class="muted">Fast sellers and giftable extras.</p>
+            <p class="muted">Fast sellers, extras, and rotating bakes.</p>
             <div class="menu-list">
               <div class="menu-item">
                 <div>
-                  <strong>Iron Bites</strong>
-                  <span class="small muted">Chocolate peanut butter oat bites</span>
+                  <strong>Chocolate Chip Cookies</strong>
+                  Thick, soft-centered, loaded with chocolate.
                 </div>
-                <span class="price">$10</span>
+                <div class="price">Varies</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong>Iron Bites</strong>
+                  Chocolate peanut butter oat bites.
+                </div>
+                <div class="price">$10</div>
               </div>
               <div class="menu-item">
                 <div>
                   <strong>Seasonal Bake</strong>
-                  <span class="small muted">Rotating weekly feature</span>
+                  Rotating weekly feature.
                 </div>
-                <span class="price">Varies</span>
+                <div class="price">Varies</div>
               </div>
             </div>
-          </article>
-
-          <article class="card" id="about">
-            <h3>About</h3>
-            <p class="muted">
-              Built around real baking, real ingredients, and local support. This site is intentionally lightweight, fast, and easy to maintain.
-            </p>
-           
-            
-           
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="how">
-      <div class="wrap">
+    <section id="about">
+      <div class="container grid-3">
+        <div class="panel card">
+          <h3>Real baking</h3>
+          <p class="muted">This started with learning the craft, chasing stronger crust, better crumb, and loaves worth sharing.</p>
+        </div>
+        <div class="panel card">
+          <h3>Real ingredients</h3>
+          <p class="muted">No nonsense, no shortcuts, and no pretending factory bread is the same thing.</p>
+        </div>
+        <div class="panel card">
+          <h3>Local support</h3>
+          <p class="muted">Fresh bread for local pickup, built one order and one batch at a time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="order">
+      <div class="container">
         <div class="section-head">
           <div>
             <h2>How to order</h2>
-            
+            <p class="muted">Simple. Clean. No extra nonsense.</p>
           </div>
         </div>
+
         <div class="steps">
-          <article class="card">
+          <div class="panel card">
             <div class="step-num">1</div>
             <h3>Check the menu</h3>
-           
-          </article>
-          <article class="card">
+            <p class="muted">See what is available now and what is rotating in and out.</p>
+          </div>
+          <div class="panel card">
             <div class="step-num">2</div>
             <h3>Send a DM</h3>
-            <p class="muted">Message on Instagram with your order, quantity, and preferred pickup time.</p>
-          </article>
-          <article class="card">
+            <p class="muted">Message on Instagram with what you want, how many, and your preferred pickup time.</p>
+          </div>
+          <div class="panel card">
             <div class="step-num">3</div>
             <h3>Confirm pickup</h3>
-            <p class="muted">You’ll get a confirmation back with availability and next steps.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap">
-      <div class="cta">
-        <div class="cta-inner">
-          <div>
-            <h2 style="margin:0 0 8px; color:#fff;">Ready to order?</h2>
-            <p style="margin:0; color:rgba(255,255,255,.82);">DM Sir Sourdough on Instagram to place an order or ask what’s baking this week.</p>
+            <p class="muted">You get a reply with availability, timing, and next steps.</p>
           </div>
-          <a class="button-outline" style="background:#fff; border-color:#fff; color:#1a1714;" href="https://www.instagram.com/sir_sourdough_baking_co/" target="_blank" rel="noopener noreferrer">Open Instagram</a>
+        </div>
+
+        <div class="cta">
+          <div class="cta-inner">
+            <div>
+              <h3 style="margin: 0 0 8px; font-size: 1.5rem; font-family: Georgia, 'Times New Roman', serif;">Ready to order?</h3>
+              <div style="opacity: 0.9;">DM Sir SourDough on Instagram and ask what’s baking this week.</div>
+            </div>
+            <a class="button" href="https://www.instagram.com/sir_sourdough_baking_co/" target="_blank" rel="noreferrer">Open Instagram</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap footer-line">
-      <div>© <span id="year"></span> Sir Sourdough</div>
+  <footer>
+    <div class="container footer-line">
+      <div>© Sir SourDough Baking Co.</div>
       <div>Made fresh. Local pickup. Small batch.</div>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
