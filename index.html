@@ -360,7 +360,7 @@
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 1.5rem;
-      align-items: stretch;
+      align-items: start;
       background: linear-gradient(180deg, rgba(212, 163, 115, 0.12), rgba(244, 236, 226, 0.05));
       border: 1px solid var(--border);
       border-radius: 22px;
@@ -400,7 +400,6 @@
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      justify-content: center;
     }
 
     .cta-card h3 {
@@ -414,6 +413,24 @@
       margin-bottom: 1.2rem;
     }
 
+    /* Iframe embed — responsive wrapper approach */
+    .form-embed-wrapper {
+      width: 100%;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .form-embed {
+      display: block;
+      width: 100%;
+      height: 860px;
+      border: 0;
+      border-radius: 12px;
+      background: white;
+    }
+
     /* Footer */
     .site-footer {
       border-top: 1px solid rgba(212, 163, 115, 0.12);
@@ -423,7 +440,7 @@
       font-size: 0.95rem;
     }
 
-    /* Responsive */
+    /* ── Responsive ── */
     @media (max-width: 920px) {
       .about-grid,
       .order-panel {
@@ -436,6 +453,11 @@
 
       .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      /* On tablet the cta-card is full width — give the iframe a bit more room */
+      .form-embed {
+        height: 960px;
       }
     }
 
@@ -474,26 +496,24 @@
       .section {
         padding: 4.5rem 0;
       }
+
+      /* Order panel stacks; cta-card goes full width */
+      .cta-card {
+        padding: 1rem;
+      }
+
+      /* Let the iframe be as tall as it needs to be on mobile */
+      .form-embed {
+        height: 1400px;
+      }
     }
-    .form-embed {
-  width: 100%;
-  height: 900px;
-  border: 0;
-  border-radius: 12px;
-  background: white;
-}
 
-@media (max-width: 920px) {
-  .form-embed {
-    height: 1100px;
-  }
-}
-
-@media (max-width: 700px) {
-  .form-embed {
-    height: 1300px;
-  }
-}
+    /* Extra small phones */
+    @media (max-width: 400px) {
+      .form-embed {
+        height: 1550px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -632,17 +652,19 @@
           </div>
 
           <aside class="cta-card" aria-label="Order call to action">
-                          <h3>Reserve Your Loaf</h3>
-                 <p>
-                      Reserve your bread for this weekend’s bake. Limited quantities available.
-                                                        </p>
-                  <iframe
-                      src="https://docs.google.com/forms/d/e/1FAIpQLSeejo-QmZGpUWxnTPTaz-8M8hdZO5ljDXGdMbcHkX9mxMDHSQ/viewform?embedded=true"
-                      class="form-embed"
-                      marginheight="0"
-                      marginwidth="0">
-                      Loading…
-                  </iframe>
+            <h3>Reserve Your Loaf</h3>
+            <p>
+              Reserve your bread for this weekend's bake. Limited quantities available.
+            </p>
+            <div class="form-embed-wrapper">
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSeejo-QmZGpUWxnTPTaz-8M8hdZO5ljDXGdMbcHkX9mxMDHSQ/viewform?embedded=true"
+                class="form-embed"
+                marginheight="0"
+                marginwidth="0">
+                Loading…
+              </iframe>
+            </div>
           </aside>
         </div>
       </div>
