@@ -120,7 +120,7 @@
       background: rgba(212, 163, 115, 0.14);
     }
 
-    /* Header */
+    /* ── Header ── */
     .site-header {
       position: sticky;
       top: 0;
@@ -193,34 +193,53 @@
       color: var(--accent);
     }
 
-    /* Hero */
+    /* ── Hero ── */
     .hero {
       position: relative;
-      min-height: calc(100vh - var(--header-height));
-      display: flex;
-      align-items: center;
-      overflow: hidden;
       border-bottom: 1px solid rgba(212, 163, 115, 0.12);
+      /* The hero background is a decorative ambient layer only — the main image is in the HTML */
       background:
-        linear-gradient(to right, rgba(34, 27, 22, 0.86) 0%, rgba(34, 27, 22, 0.74) 48%, rgba(34, 27, 22, 0.55) 100%),
-        url("hero-loaf.jpg") center/cover no-repeat;
+        radial-gradient(circle at 20% 20%, rgba(212, 163, 115, 0.07), transparent 40%),
+        var(--bg-deep);
+      overflow: hidden;
     }
 
-    .hero::after {
+    .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(212, 163, 115, 0.12), transparent 30%),
-        linear-gradient(to top, rgba(34, 27, 22, 0.7), transparent 45%);
+      background: linear-gradient(to bottom, rgba(34, 27, 22, 0.5), rgba(34, 27, 22, 0.15));
       pointer-events: none;
+      z-index: 0;
     }
 
-    .hero-content {
+    .hero > .container {
       position: relative;
       z-index: 1;
-      max-width: 700px;
-      padding: 5rem 0;
+    }
+
+    /* ── Hero layout: mobile-first stacked, side-by-side on tablet+ ── */
+    .hero-inner {
+      display: flex;
+      flex-direction: column;        /* mobile: stack text above image */
+      gap: 2.5rem;
+      padding: 4rem 0;
+    }
+
+    /* Tablet & desktop: text left, image right, side by side */
+    @media (min-width: 768px) {
+      .hero-inner {
+        flex-direction: row;
+        align-items: flex-start;     /* top-align so image can scroll with text */
+        padding: 5rem 0;
+        gap: 3rem;
+      }
+    }
+
+    /* ── Hero: Text column ── */
+    .hero-text {
+      flex: 1;
+      min-width: 0;
     }
 
     .hero-badge {
@@ -236,17 +255,23 @@
       margin-bottom: 1.25rem;
     }
 
-    .hero h1 {
-      font-size: clamp(2.8rem, 6vw, 5.4rem);
-      line-height: 0.96;
+    /*
+      ============================================================
+      HERO HEADLINE — edit the text in the <h1> tag in the HTML.
+      Each <span> is a separate visual line you can change freely.
+      ============================================================
+    */
+    .hero-text h1 {
+      font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+      line-height: 0.97;
       margin-bottom: 1.2rem;
       text-wrap: balance;
     }
 
-    .hero p {
+    .hero-text p {
       font-size: 1.08rem;
       color: var(--muted);
-      max-width: 640px;
+      max-width: 560px;
       margin-bottom: 1.8rem;
     }
 
@@ -256,7 +281,43 @@
       flex-wrap: wrap;
     }
 
-    /* Feature / About */
+    /* ── Hero: Image column ── */
+    .hero-image-col {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /*
+      On tablet+, the image column sticks so the image scrolls alongside
+      the text rather than disappearing above it. The sticky offset accounts
+      for the fixed header height.
+    */
+    @media (min-width: 768px) {
+      .hero-image-col {
+        position: sticky;
+        top: calc(var(--header-height) + 1.5rem);
+        /* Stops sticking once the section ends — parent height handles that */
+        align-self: flex-start;
+      }
+    }
+
+    /*
+      ============================================================
+      HERO IMAGE — swap the src on the <img> tag inside
+      .hero-image-col to change this photo. No CSS needed.
+      ============================================================
+    */
+    .hero-image-col img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border);
+      object-fit: cover;
+      /* Cap height so it doesn't tower over the text column */
+      max-height: 680px;
+    }
+
+    /* ── About / Feature ── */
     .about-grid {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
@@ -310,7 +371,7 @@
       margin-bottom: 0.2rem;
     }
 
-    /* Gallery */
+    /* ── Gallery ── */
     .gallery-header {
       margin-bottom: 2rem;
     }
@@ -355,7 +416,7 @@
       letter-spacing: 0.03em;
     }
 
-    /* Order section */
+    /* ── Order section ── */
     .order-panel {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -413,7 +474,6 @@
       margin-bottom: 1.2rem;
     }
 
-    /* Iframe embed — responsive wrapper approach */
     .form-embed-wrapper {
       width: 100%;
       position: relative;
@@ -431,7 +491,7 @@
       background: white;
     }
 
-    /* Footer */
+    /* ── Footer ── */
     .site-footer {
       border-top: 1px solid rgba(212, 163, 115, 0.12);
       padding: 2rem 0 3rem;
@@ -441,6 +501,8 @@
     }
 
     /* ── Responsive ── */
+
+    /* Tablet */
     @media (max-width: 920px) {
       .about-grid,
       .order-panel {
@@ -455,12 +517,12 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      /* On tablet the cta-card is full width — give the iframe a bit more room */
       .form-embed {
         height: 960px;
       }
     }
 
+    /* Mobile */
     @media (max-width: 700px) {
       :root {
         --header-height: auto;
@@ -481,14 +543,6 @@
         gap: 0.9rem;
       }
 
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-content {
-        padding: 4rem 0;
-      }
-
       .gallery-grid {
         grid-template-columns: 1fr;
       }
@@ -497,12 +551,10 @@
         padding: 4.5rem 0;
       }
 
-      /* Order panel stacks; cta-card goes full width */
       .cta-card {
         padding: 1rem;
       }
 
-      /* Let the iframe be as tall as it needs to be on mobile */
       .form-embed {
         height: 1400px;
       }
@@ -517,17 +569,18 @@
   </style>
 </head>
 <body>
+
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
         <a class="brand" href="#top" aria-label="Sir SourDough Baking Co. home">
+          <!-- BRAND LOGO — swap logo.png to change the header logo -->
           <img src="logo.png" alt="Sir SourDough Baking Co. logo" />
           <div class="brand-text">
             <strong>Sir SourDough Baking Co.</strong>
             <span>Artisan bread with a tavern soul</span>
           </div>
         </a>
-
         <nav class="site-nav" aria-label="Primary navigation">
           <ul>
             <li><a href="#menu">Menu</a></li>
@@ -540,47 +593,76 @@
   </header>
 
   <main id="top">
+
+    <!-- ══════════════════════════════════════════════
+         HERO SECTION
+         Layout: mobile = stacked (text above, image below)
+                 tablet/desktop = side-by-side (text left, image right)
+         The image sticks alongside the text while text is visible.
+    ══════════════════════════════════════════════ -->
     <section class="hero" aria-label="Hero section">
       <div class="container">
-        <div class="hero-content" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+        <div class="hero-inner">
 
-  <!-- TEXT (LEFT) -->
-  <div style="flex: 1; min-width: 280px;">
-    <div class="hero-badge">Crafted in small batches</div>
+          <!-- ── HERO TEXT (left column on tablet/desktop) ──
+               Edit the h1 spans and paragraph text below to change
+               the hero headline and subtext. -->
+          <div class="hero-text">
+            <div class="hero-badge">Crafted in small batches</div>
 
-    <h1>
-      Rustic loaves.<br />
-      Honest ingredients.<br />
-      Old-world charm.
-    </h1>
+            <!--
+              HERO HEADLINE — edit these lines to change what appears
+              in the big headline on the left.
+            -->
+            <h1>
+              Rustic Loaves.<br />
+              Honest Ingredients.<br />
+              Old&#8209;world charm.
+            </h1>
 
-    <p>
-      Welcome to Sir SourDough Baking Co., where every loaf is made with patience,
-      character, and a warm artisan touch. From golden crusts to rich crumb,
-      this is bread made to be remembered.
-    </p>
+            <!--
+              HERO SUBTEXT — edit this paragraph to change the
+              description beneath the headline.
+            -->
+            <p>
+              Welcome to Sir SourDough Baking Co., where every loaf is made with patience,
+              character, and a warm artisan touch. From golden crusts to rich crumb,
+              this is bread made to be remembered.
+            </p>
 
-    <div class="hero-actions">
-      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeejo-QmZGpUWxnTPTaz-8M8hdZO5ljDXGdMbcHkX9mxMDHSQ/viewform" target="_blank">
-        Reserve a Loaf
-      </a>
-      <a class="btn btn-secondary" href="#menu">View the Daily Bake</a>
-    </div>
-  </div>
+            <div class="hero-actions">
+              <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeejo-QmZGpUWxnTPTaz-8M8hdZO5ljDXGdMbcHkX9mxMDHSQ/viewform" target="_blank">
+                Reserve a Loaf
+              </a>
+              <a class="btn btn-secondary" href="#menu">View the Daily Bake</a>
+            </div>
+          </div>
+          <!-- end .hero-text -->
 
-  <!-- IMAGE (RIGHT) -->
-  <div style="flex: 1; min-width: 280px;">
-    <img
-      src=background.jpg" 
-     
-      style="width: 100%; border-radius: 18px; box-shadow: 0 12px 30px rgba(0,0,0,0.4);"
-    />
-  </div>
+          <!-- ── HERO IMAGE (right column on tablet/desktop) ──
+               Change the src attribute on the <img> below to swap
+               the hero photo. No CSS changes needed. -->
+          <div class="hero-image-col">
+            <!--
+              HERO IMAGE SOURCE — replace "background.jpg" with any
+              filename in your repo (e.g. "loaf-hero.jpg") to change
+              this photo without touching any CSS.
+            -->
+            <img
+              src="background.jpg"
+              alt="Freshly baked artisan sourdough loaf"
+            />
+          </div>
+          <!-- end .hero-image-col -->
 
-</div>
+        </div>
+        <!-- end .hero-inner -->
       </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════
+         ABOUT SECTION
+    ══════════════════════════════════════════════ -->
     <section class="section" id="about">
       <div class="container">
         <div class="about-grid">
@@ -598,8 +680,8 @@
               presence and handmade soul.
             </p>
           </div>
-
           <div class="feature-image-wrap">
+            <!-- ABOUT SECTION IMAGE — swap "loaf-crumb.jpg" to change this photo -->
             <img src="loaf-crumb.jpg" alt="Fresh artisan sourdough loaf" />
             <div class="feature-plaque">
               <strong>Featured Bake</strong>
@@ -610,6 +692,9 @@
       </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════
+         MENU / GALLERY SECTION
+    ══════════════════════════════════════════════ -->
     <section class="section" id="menu">
       <div class="container">
         <div class="gallery-header">
@@ -620,33 +705,28 @@
             handcrafted treats from the Sir SourDough table.
           </p>
         </div>
-
         <div class="gallery-grid">
+          <!-- GALLERY IMAGES — swap each src to change gallery photos -->
           <figure class="gallery-item">
             <img src="cookie-gallery.jpg" alt="Fresh baked cookies" />
             <figcaption class="gallery-label">Cookies</figcaption>
           </figure>
-
           <figure class="gallery-item">
             <img src="cookie-hero.jpg" alt="Signature cookie display" />
             <figcaption class="gallery-label">Sweet Bakes</figcaption>
           </figure>
-
           <figure class="gallery-item">
             <img src="gallery-dough.jpg" alt="Prepared dough before baking" />
             <figcaption class="gallery-label">Dough Work</figcaption>
           </figure>
-
           <figure class="gallery-item">
             <img src="gallery-loaf.jpg" alt="Fresh sourdough loaf" />
             <figcaption class="gallery-label">Rustic Loaf</figcaption>
           </figure>
-
           <figure class="gallery-item">
             <img src="loaf-crumb.jpg" alt="Crumb shot of sourdough loaf interior" />
             <figcaption class="gallery-label">Crumb Shot</figcaption>
           </figure>
-
           <figure class="gallery-item">
             <img src="hero-loaf.jpg" alt="Hero loaf from Sir SourDough Baking Co." />
             <figcaption class="gallery-label">House Favorite</figcaption>
@@ -655,6 +735,9 @@
       </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════
+         ORDER SECTION
+    ══════════════════════════════════════════════ -->
     <section class="section" id="order">
       <div class="container">
         <div class="order-panel">
@@ -666,25 +749,23 @@
               Use the order form to reserve a loaf, ask what is baking this weekend,
               or request details on current offerings.
             </p>
-
             <ul class="order-list">
               <li>Check the latest bakes and available items.</li>
               <li>Submit your order request with quantity and preferred pickup time.</li>
               <li>Wait for confirmation and enjoy a fresh artisan bake.</li>
             </ul>
           </div>
-
           <aside class="cta-card" aria-label="Order call to action">
             <h3>Reserve Your Loaf</h3>
-            <p>
-              Reserve your bread for this weekend's bake. Limited quantities available.
-            </p>
+            <p>Reserve your bread for this weekend's bake. Limited quantities available.</p>
             <div class="form-embed-wrapper">
               <iframe
                 src="https://docs.google.com/forms/d/e/1FAIpQLSeejo-QmZGpUWxnTPTaz-8M8hdZO5ljDXGdMbcHkX9mxMDHSQ/viewform?embedded=true"
                 class="form-embed"
                 marginheight="0"
-                marginwidth="0">
+                marginwidth="0"
+                title="Order form"
+              >
                 Loading…
               </iframe>
             </div>
@@ -692,12 +773,14 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 Sir SourDough Baking Co. | Contact: sirsourdough25@gmail.com All rights reserved.</p>
+      <p>&copy; 2026 Sir SourDough Baking Co. | Contact: sirsourdough25@gmail.com &nbsp;All rights reserved.</p>
     </div>
   </footer>
+
 </body>
 </html>
