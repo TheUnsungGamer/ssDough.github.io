@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipes &amp; Techniques — Sir SourDough Baking Co.</title>
+  <meta name="description" content="Learn the craft of sourdough. Recipes, techniques, and baker's notes from the Sir SourDough kitchen." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════ SITE HEADER ═══════════════════ -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="Sir SourDough Baking Co. home">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <div class="brand-text">
+            <strong>Sir SourDough</strong>
+            <span>Baking Co. · Est. 2026</span>
+          </div>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html#shop">Shop</a></li>
+            <li><a href="recipes.html" aria-current="page">Recipes</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li class="nav-cta"><a href="index.html#order" class="btn btn-sm">Reserve a Loaf</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════ PAGE HEADER ═══════════════════ -->
+    <section class="page-header">
+      <div class="container-narrow">
+        <span class="kicker">The Learning Table</span>
+        <h1>Recipes &amp; Techniques.</h1>
+        <p class="lead">
+          A growing collection of recipes, baker's notes, and hands-on techniques
+          from our kitchen. Written for home bakers, readable on a flour-dusted phone.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ FILTER BAR ═══════════════════ -->
+    <section>
+      <div class="container">
+        <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter recipes by tag">
+          <button class="filter-tag is-active" data-filter="all" type="button">All recipes</button>
+          <button class="filter-tag" data-filter="sourdough" type="button">#Sourdough</button>
+          <button class="filter-tag" data-filter="technique" type="button">#Technique</button>
+          <button class="filter-tag" data-filter="beginner" type="button">#Beginner</button>
+          <button class="filter-tag" data-filter="sweet" type="button">#Sweet</button>
+          <button class="filter-tag" data-filter="whole-grain" type="button">#WholeGrain</button>
+          <button class="filter-tag" data-filter="quick" type="button">#Quick</button>
+        </div>
+
+        <!-- ═══════════════════ RECIPE GRID ═══════════════════ -->
+        <div class="recipe-grid" id="recipe-grid">
+
+          <a href="recipe-post.html" class="recipe-card" data-tags="sourdough beginner">
+            <div class="recipe-card-image">
+              <span class="recipe-card-difficulty">Beginner</span>
+              <img src="hero-loaf.jpg" alt="A freshly baked Classic Tavern Boule" />
+            </div>
+            <div class="recipe-card-body">
+              <div class="recipe-card-tags">
+                <span class="recipe-tag">#Sourdough</span>
+                <span class="recipe-tag">#Beginner</span>
+              </div>
+              <h3>The Beginner's Classic Tavern Boule</h3>
+              <p>Our foundational recipe. Four ingredients, 36 hours, one beautiful loaf. The perfect place to start your sourdough journey.</p>
+              <div class="recipe-card-meta">
+                <span>⏱ 36 hrs</span>
+                <span>🍞 1 loaf</span>
+                <span>📖 Recipe</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="recipe-post.html" class="recipe-card" data-tags="sourdough technique">
+            <div class="recipe-card-image">
+              <span class="recipe-card-difficulty">Intermediate</span>
+              <img src="crumbShot.jpg" alt="Open crumb structure" />
+            </div>
+            <div class="recipe-card-body">
+              <div class="recipe-card-tags">
+                <span class="recipe-tag">#Sourdough</span>
+                <span class="recipe-tag">#Technique</span>
+              </div>
+              <h3>Mastering the Open Crumb</h3>
+              <p>High-hydration handling, proper gluten development, and the shaping techniques that lead to that coveted airy interior.</p>
+              <div class="recipe-card-meta">
+                <span>⏱ 48 hrs</span>
+                <span>🍞 1 loaf</span>
+                <span>📖 Guide</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="recipe-post.html" class="recipe-card" data-tags="technique beginner">
+            <div class="recipe-card-image">
+              <span class="recipe-card-difficulty">Beginner</span>
+              <img src="gallery-dough.jpg" alt="Sourdough starter in a jar" />
+            </div>
+            <div class="recipe-card-body">
+              <div class="recipe-card-tags">
+                <span class="recipe-tag">#Technique</span>
+                <span class="recipe-tag">#Beginner</span>
+              </div>
+              <h3>Starting Your Sourdough Starter</h3>
+              <p>Day-by-day: how to build a wild yeast starter from scratch using just flour and water. Troubleshooting tips included.</p>
+              <div class="recipe-card-meta">
+                <span>⏱ 7 days</span>
+                <span>🍞 1 jar</span>
+                <span>📖 Guide</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="recipe-post.html" class="recipe-card" data-tags="sourdough whole-grain">
+            <div class="recipe-card-image">
+              <span class="recipe-card-difficulty">Intermediate</span>
+              <img src="gallery-loaf.jpg" alt="Rustic whole wheat loaf" />
+            </div>
+            <div class="recipe-card-body">
+              <div class="recipe-card-tags">
+                <span class="recipe-tag">#Sourdough</span>
+                <span class="recipe-tag">#WholeGrain</span>
+              </div>
+              <h3>50% Whole Wheat Hearth Loaf</h3>
+              <p>A nuttier, earthier loaf with a softer crumb. Learn the hydration adjustments and timing changes that whole grains demand.</p>
+              <div class="recipe-card-meta">
+                <span>⏱ 60 hrs</span>
+                <span>🍞 1 loaf</span>
+                <span>📖 Recipe</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="recipe-post.html" class="recipe-card" data-tags="sweet quick">
+            <div class="recipe-card-image">
+              <span class="recipe-card-difficulty">Easy</span>
+              <img src="cookie-gallery.jpg" alt="100g Hearthstone Cookie — brown butter, sea salt, chocolate chip" />
+            </div>
+            <div class="recipe-card-body">
+              <div class="recipe-card-tags">
+                <span class="recipe-tag">#Sweet</span>
+                <span class="recipe-tag">#Quick</span>
+              </div>
+              <h3>100g Hearthstone Cookie</h3>
+              <p>Brown butter, sea salt, and chocolate chip. Each cookie is 100g — a full, satisfying bake. Rested overnight for a chewier center and deeper flavor.</p>
+              <div class="recipe-card-meta">
+                <span>⏱ 1 hr</span>
+                <span>🍞 12 cookies</span>
+                <span>📖 Recipe</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="recipe-post.html" class="recipe-card" data-tags="sweet sourdough">
+            <div class="recipe-card-image">
+              <span class="recipe-card-difficulty">Intermediate</span>
+              <img src="cupcakes.jpg" alt="Giant Sourdough Cinnamon Rolls with cream cheese glaze" />
+            </div>
+            <div class="recipe-card-body">
+              <div class="recipe-card-tags">
+                <span class="recipe-tag">#Sweet</span>
+                <span class="recipe-tag">#Sourdough</span>
+              </div>
+              <h3>Giant Sourdough Cinnamon Rolls</h3>
+              <p>Enriched sourdough dough, brown butter cinnamon fill, cream cheese glaze. Proofed overnight — pull them from the box and they're still warm.</p>
+              <div class="recipe-card-meta">
+                <span>⏱ 2 hrs</span>
+                <span>🍞 1 cake</span>
+                <span>📖 Recipe</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ END-OF-PAGE CTA ═══════════════════ -->
+    <section class="section">
+      <div class="container-narrow">
+        <div class="post-cta">
+          <h3>New recipes, every Thursday.</h3>
+          <p>Join the weekly bake sheet for a seasonal recipe, baker's notes, and a heads-up on what's coming out of the oven this weekend.</p>
+          <form class="newsletter-inline" data-newsletter>
+            <input type="email" class="input" placeholder="your@email.com" aria-label="Email address" required />
+            <button type="submit" class="btn">Subscribe</button>
+          </form>
+          <div class="newsletter-success post-cta-success" hidden>
+            <span aria-hidden="true">✓</span>
+            <div>
+              <strong>Thanks — you're on the list!</strong>
+              <p>A new window will open to confirm your preferences.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════ SITE FOOTER ═══════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="newsletter">
+        <div class="newsletter-copy">
+          <h3>Get the weekly bake sheet.</h3>
+          <p>Each Thursday: what's baking this weekend, plus a seasonal recipe from the kitchen.</p>
+        </div>
+        <div class="newsletter-action">
+          <form class="newsletter-form" data-newsletter>
+            <input type="email" class="input" placeholder="your@email.com" aria-label="Email address" required />
+            <button type="submit" class="btn">Subscribe →</button>
+          </form>
+          <div class="newsletter-success" hidden>
+            <span aria-hidden="true">✓</span>
+            <div>
+              <strong>You're in!</strong>
+              <p>Opening the signup form to confirm your preferences…</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Sir SourDough Baking Co.</h3>
+          <p>Small-batch, slow-fermented sourdough and rustic bakes. Made by hand, picked up fresh.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html#shop">Shop</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#order">Reserve a Loaf</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <ul>
+            <li><a href="mailto:sirsourdough25@gmail.com">sirsourdough25@gmail.com</a></li>
+            <li><a href="https://www.instagram.com/sir_sourdough_baking_co/" target="_blank" rel="noopener">@sir_sourdough_baking_co</a></li>
+            <li>Pickup: Sat &amp; Sun</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Sir SourDough Baking Co.</span>
+        <span>Made with flour, water, salt &amp; time.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════ FILTER + NEWSLETTER SCRIPTS ═══════════════════ -->
+  <script>
+    // ── Recipe filter ─────────────────────────────────────
+    (function () {
+      const filterBar = document.getElementById('filter-bar');
+      const cards = document.querySelectorAll('.recipe-card');
+
+      filterBar.addEventListener('click', (e) => {
+        const btn = e.target.closest('.filter-tag');
+        if (!btn) return;
+
+        const filter = btn.dataset.filter;
+
+        // Update active state
+        filterBar.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        // Filter cards
+        cards.forEach(card => {
+          const tags = (card.dataset.tags || '').split(' ');
+          if (filter === 'all' || tags.includes(filter)) {
+            card.classList.remove('is-hidden');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+      });
+    })();
+
+    // ── Newsletter: success message + redirect ────────────
+    (function () {
+      const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeejo-QmZGpUWxnTPTaz-8M8hdZO5ljDXGdMbcHkX9mxMDHSQ/viewform';
+      document.querySelectorAll('[data-newsletter]').forEach(form => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          if (!input || !input.value) return;
+          const success = form.parentElement.querySelector('.newsletter-success');
+          form.hidden = true;
+          if (success) success.hidden = false;
+          setTimeout(() => window.open(FORM_URL, '_blank', 'noopener'), 1200);
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
