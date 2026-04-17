@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Beginner's Classic Tavern Boule — Sir SourDough Baking Co.</title>
+  <meta name="description" content="Our foundational sourdough recipe: four ingredients, 36 hours, and one beautiful loaf." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════ SITE HEADER ═══════════════════ -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="Sir SourDough Baking Co. home">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <div class="brand-text">
+            <strong>Sir SourDough</strong>
+            <span>Baking Co. · Est. 2026</span>
+          </div>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html#shop">Shop</a></li>
+            <li><a href="recipes.html" aria-current="page">Recipes</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li class="nav-cta"><a href="index.html#order" class="btn btn-sm">Reserve a Loaf</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════ RECIPE POST ═══════════════════ -->
+    <article class="recipe-post container-narrow">
+
+      <nav class="recipe-breadcrumb" aria-label="Breadcrumb">
+        <a href="recipes.html">← All Recipes</a>
+      </nav>
+
+      <header class="recipe-hero">
+        <h1>The Beginner's Classic Tavern Boule</h1>
+        <p class="lead">
+          Four ingredients, thirty-six hours, one unforgettable loaf. This is the
+          recipe we give every friend who asks, "Where should I start?" It's
+          forgiving, repeatable, and the crust is genuinely thrilling.
+        </p>
+
+        <div class="recipe-tags-row">
+          <span class="pill">#Sourdough</span>
+          <span class="pill">#Beginner</span>
+          <span class="pill">#Hearth</span>
+        </div>
+
+        <div class="recipe-hero-image">
+          <img src="hero-loaf.jpg" alt="The finished Classic Tavern Boule with golden, blistered crust" />
+        </div>
+
+        <!-- Recipe at-a-glance -->
+        <div class="recipe-meta-bar">
+          <div class="meta-item">
+            <strong>36 hrs</strong>
+            <span>Total time</span>
+          </div>
+          <div class="meta-item">
+            <strong>30 min</strong>
+            <span>Active time</span>
+          </div>
+          <div class="meta-item">
+            <strong>1 loaf</strong>
+            <span>Yield</span>
+          </div>
+          <div class="meta-item">
+            <strong>Easy</strong>
+            <span>Difficulty</span>
+          </div>
+        </div>
+
+        <!-- Action bar -->
+        <div class="recipe-actions">
+          <button class="btn btn-secondary btn-sm" onclick="window.print()" type="button">
+            🖨 Print Recipe
+          </button>
+          <button class="btn btn-secondary btn-sm" id="share-btn" type="button">
+            🔗 Share
+          </button>
+        </div>
+      </header>
+
+      <!-- Two-column body: ingredients | instructions -->
+      <div class="recipe-body">
+
+        <aside class="recipe-ingredients">
+          <div class="ingredients-head">
+            <h2>Ingredients</h2>
+            <div class="unit-toggle" role="group" aria-label="Unit selector">
+              <button type="button" class="unit-btn is-active" data-unit="g">Grams</button>
+              <button type="button" class="unit-btn" data-unit="cups">Cups</button>
+            </div>
+          </div>
+
+          <h3>Levain (build the night before)</h3>
+          <ul>
+            <li><span class="amount" data-g="30 g" data-cups="2 tbsp">30 g</span><span>active sourdough starter</span></li>
+            <li><span class="amount" data-g="60 g" data-cups="½ cup">60 g</span><span>bread flour (all-purpose flour ok)</span></li>
+            <li><span class="amount" data-g="60 g" data-cups="¼ cup">60 g</span><span>water, room temp</span></li>
+          </ul>
+
+          <h3>Final Dough</h3>
+          <ul>
+            <li><span class="amount" data-g="400 g" data-cups="3¼ cups">400 g</span><span>bread flour (all-purpose flour ok)</span></li>
+            <li><span class="amount" data-g="100 g" data-cups="¾ cup">100 g</span><span>whole wheat flour (all-purpose flour ok)</span></li>
+            <li><span class="amount" data-g="375 g" data-cups="1½ cups + 2 tbsp">375 g</span><span>water, 75°F</span></li>
+            <li><span class="amount" data-g="10 g" data-cups="1¾ tsp">10 g</span><span>fine sea salt</span></li>
+            <li><span class="amount" data-g="120 g" data-cups="½ cup">120 g</span><span>active levain (from above)</span></li>
+          </ul>
+
+          <h3>You'll also need</h3>
+          <ul>
+            <li><span class="amount">—</span><span>Dutch oven or combo cooker</span></li>
+            <li><span class="amount">—</span><span>Banneton or bowl with linen</span></li>
+            <li><span class="amount">—</span><span>Sharp blade for scoring</span></li>
+          </ul>
+
+          <p class="unit-note">
+            <em>Bakers note:</em> grams are strongly recommended for sourdough — volume measurements vary widely and can change hydration by 10%+.
+          </p>
+        </aside>
+
+        <section class="recipe-instructions">
+          <h2>Instructions</h2>
+          <ol>
+            <li>
+              <h3>Build the levain (night before, ~9 PM)</h3>
+              <p>Mix 30 g starter, 60 g flour, and 60 g water in a jar. Cover loosely and leave at room temperature overnight. By morning it should be domed, bubbly, and smell sweet-tangy.</p>
+            </li>
+
+            <li>
+              <h3>Autolyse (morning, ~9 AM)</h3>
+              <p>In a large bowl, mix 400 g bread flour, 100 g whole wheat (all purpose flour is just fine, so 500g all purpose flour instead), and 350 g of the water (hold back 25 g). Mix until just combined — shaggy is fine. Cover and rest 30–45 minutes. This hydrates the flour and starts gluten development without any kneading.</p>
+            </li>
+
+            <li>
+              <h3>Mix in levain &amp; salt (~9:45 AM)</h3>
+              <p>Add 120 g of your active levain, the reserved 25 g water, and 10 g salt. Pinch and fold the dough to incorporate — use wet hands. Aim for a smooth, cohesive mass. This takes about 3 minutes.</p>
+            </li>
+
+            <li>
+              <h3>Bulk ferment with folds (~10 AM – 2 PM)</h3>
+              <p>Over the next four hours, perform four sets of stretch-and-folds, 30 minutes apart. Pull your dough gently and fold it back onto itself, feeling the fibers stretch with each pull. Do not pull too hard and rip the dough, strength will build over time. After the folds, let the dough rest undisturbed until it's jiggly, domed, and roughly 50% larger. Temperature matters — aim for a 68–75°F spot. Remember, colder temps ferment slower, warmer temps ferment faster.</p>
+            </li>
+
+            <li>
+              <h3>Preshape &amp; bench rest (~2 PM)</h3>
+              <p>Turn the dough onto an unfloured counter. With a bench scraper, shape it into a loose round. You might notice gas bubbles forming — this is a good sign. Place an inverted bowl over it to retain moisture. Let it rest 30 minutes, — this relaxes the gluten and makes final shaping easier.</p>
+            </li>
+
+            <li>
+              <h3>Final shape &amp; cold retard (~2:30 PM)</h3>
+              <p>Shape firmly into a tight ball. Place seam-up in a floured banneton. Cover and refrigerate overnight, ideally 12–16 hours. The cold develops flavor and makes scoring dramatically easier.</p>
+            </li>
+
+            <li>
+              <h3>Bake (next morning)</h3>
+              <p>Preheat oven with Dutch oven inside to 475°F for at least 45 minutes (Not every oven is created equal, be sure to check your oven's calibration, a reliable oven thermometer can be found in any grocery store for under $10). If you dont own a dutch oven you can use a regular baking sheet(If you use the baking sheet, place it on the middle rack and add a pan of water to create steam, if you do, remember to remove the pan of water after 20 minutes). Turn the cold dough onto parchment, score confidently with a single deep slash about 1/2 inch deep or a simple cross. Transfer to the Dutch oven, cover.</p>
+              <p>Bake covered 20 minutes at 475°F. Remove the lid, reduce to 450°F, and bake another 20–25 minutes until deeply golden brown — almost mahogany. Internal temp should read 205–210°F.</p>
+            </li>
+
+            <li>
+              <h3>Cool (the hardest step)</h3>
+              <p>Transfer to a wire rack. Let it cool at least one full hour, preferably two before cutting — the crumb is still setting up inside. We know it's hard. Do not cut it yet.</p>
+            </li>
+          </ol>
+
+          <div class="recipe-note">
+            <strong>Baker's Note</strong>
+            <p>Your first loaf won't look like the photo — and that's okay. Sourdough rewards repetition. By loaf three or four, your hands will know what the dough is telling you. Keep notes, and trust the process.</p>
+          </div>
+
+          <div class="recipe-note">
+            <strong>Troubleshooting</strong>
+            <p><strong>Dense crumb?</strong> Under-fermented. Let bulk go longer, or warm up your space. <strong>Flat loaf?</strong> Over-fermented, or shaping needs more tension. <strong>Pale crust?</strong> Bake longer, your sourdough wants color.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- End-of-post newsletter CTA -->
+      <div class="post-cta">
+        <h3>Enjoyed this recipe?</h3>
+        <p>Get a new recipe and baker's notes from the kitchen every Thursday. No spam — just bread.</p>
+        <form class="newsletter-inline" data-newsletter>
+          <input type="email" class="input" placeholder="your@email.com" aria-label="Email address" required />
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+        <div class="newsletter-success post-cta-success" hidden>
+          <span aria-hidden="true">✓</span>
+          <div>
+            <strong>Thanks — you're on the list!</strong>
+            <p>A new window will open to confirm your preferences.</p>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- ═══════════════════ SITE FOOTER ═══════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="newsletter">
+        <div class="newsletter-copy">
+          <h3>Get the weekly bake sheet.</h3>
+          <p>Each Thursday: what's baking this weekend, plus a seasonal recipe from the kitchen.</p>
+        </div>
+        <div class="newsletter-action">
+          <form class="newsletter-form" data-newsletter>
+            <input type="email" class="input" placeholder="your@email.com" aria-label="Email address" required />
+            <button type="submit" class="btn">Subscribe →</button>
+          </form>
+          <div class="newsletter-success" hidden>
+            <span aria-hidden="true">✓</span>
+            <div>
+              <strong>You're in!</strong>
+              <p>Opening the signup form to confirm your preferences…</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Sir SourDough Baking Co.</h3>
+          <p>Small-batch, slow-fermented sourdough and rustic bakes. Made by hand, picked up fresh.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html#shop">Shop</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#order">Reserve a Loaf</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <ul>
+            <li><a href="mailto:sirsourdough25@gmail.com">sirsourdough25@gmail.com</a></li>
+            <li><a href="https://www.instagram.com/sir_sourdough_baking_co/" target="_blank" rel="noopener">@sir_sourdough_baking_co</a></li>
+            <li>Pickup: Sat &amp; Sun</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Sir SourDough Baking Co.</span>
+        <span>Made with flour, water, salt &amp; time.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Share button: Web Share API with clipboard fallback ─────────────
+    document.getElementById('share-btn').addEventListener('click', async () => {
+      const data = { title: document.title, url: window.location.href };
+      try {
+        if (navigator.share) {
+          await navigator.share(data);
+        } else {
+          await navigator.clipboard.writeText(window.location.href);
+          const btn = document.getElementById('share-btn');
+          const original = btn.innerHTML;
+          btn.innerHTML = '✓ Link copied';
+          setTimeout(() => { btn.innerHTML = original; }, 2000);
+        }
+      } catch (e) { /* user cancelled */ }
+    });
+
+    // ── Unit toggle: swap grams ↔ cups on ingredient list ───────────────
+    (function () {
+      const toggle = document.querySelector('.unit-toggle');
+      if (!toggle) return;
+
+      const amounts = document.querySelectorAll('.amount[data-g]');
+      const STORAGE_KEY = 'sirsourdough:unit';
+
+      function setUnit(unit) {
+        toggle.querySelectorAll('.unit-btn').forEach(b => {
+          b.classList.toggle('is-active', b.dataset.unit === unit);
+          b.setAttribute('aria-pressed', b.dataset.unit === unit ? 'true' : 'false');
+        });
+        amounts.forEach(el => {
+          const val = el.dataset[unit];
+          if (val) el.textContent = val;
+        });
+        // Remember preference for the session (in-memory; no localStorage in sandboxed contexts)
+        try { sessionStorage.setItem(STORAGE_KEY, unit); } catch (e) {}
+      }
+
+      toggle.addEventListener('click', (e) => {
+        const btn = e.target.closest('.unit-btn');
+        if (btn) setUnit(btn.dataset.unit);
+      });
+
+      // Restore preference on load
+      try {
+        const saved = sessionStorage.getItem(STORAGE_KEY);
+        if (saved === 'cups') setUnit('cups');
+      } catch (e) {}
+    })();
+
+    // ── Newsletter forms: inline success + redirect ─────────────────────
+    (function () {
+      const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeejo-QmZGpUWxnTPTaz-8M8hdZO5ljDXGdMbcHkX9mxMDHSQ/viewform';
+      document.querySelectorAll('[data-newsletter]').forEach(form => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          if (!input || !input.value) return;
+          const success = form.parentElement.querySelector('.newsletter-success');
+          form.hidden = true;
+          if (success) success.hidden = false;
+          setTimeout(() => window.open(FORM_URL, '_blank', 'noopener'), 1200);
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
